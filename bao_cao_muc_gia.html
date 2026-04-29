@@ -1,0 +1,2080 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bao cao muc gia | Ramond Urbaniz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #f5f1e6;
+      --paper: #fffdf8;
+      --ink: #1c1a17;
+      --muted: #6b6257;
+      --line: #e4d9c7;
+      --gold: #a96b11;
+      --gold-2: #af7217;
+      --green: #67a671;
+      --teal: #004a59;
+      --rose: #cf2e2e;
+      --violet: #9b51e0;
+      --blue: #1e73be;
+      --shadow: 0 18px 55px rgba(40, 34, 24, .12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(115deg, rgba(245, 241, 230, .95), rgba(255, 253, 248, .86) 45%, rgba(232, 242, 235, .9)),
+        var(--cream);
+      font-family: "Roboto", Arial, Helvetica, sans-serif;
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(169, 107, 17, .18);
+      background: rgba(255, 253, 248, .9);
+      backdrop-filter: blur(16px);
+    }
+
+    .topbar-inner {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: linear-gradient(135deg, var(--gold), var(--teal));
+      border-radius: 8px;
+      box-shadow: 0 10px 20px rgba(0, 74, 89, .18);
+      flex: 0 0 auto;
+    }
+
+    .brand-text {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .nav a,
+    .print-btn {
+      height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 12px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .nav a:hover,
+    .print-btn:hover {
+      border-color: rgba(169, 107, 17, .26);
+      background: rgba(169, 107, 17, .08);
+    }
+
+    .print-btn {
+      color: #fff;
+      border-color: var(--gold);
+      background: var(--gold);
+      cursor: pointer;
+      font: inherit;
+      font-weight: 700;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 540px;
+      display: grid;
+      align-items: end;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(15, 22, 18, .86), rgba(15, 22, 18, .48) 48%, rgba(15, 22, 18, .18)),
+        url("TT4-34_1.jpg") center / cover no-repeat;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 160px;
+      background: linear-gradient(0deg, var(--cream), transparent);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 92px 0 110px;
+      color: #fff;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 18px;
+      color: #fff5da;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 42px;
+      height: 2px;
+      background: var(--gold-2);
+    }
+
+    h1 {
+      max-width: 900px;
+      margin: 0;
+      font-size: 72px;
+      line-height: .98;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 760px;
+      margin: 22px 0 0;
+      color: rgba(255, 255, 255, .84);
+      font-size: 20px;
+    }
+
+    .hero-grid {
+      width: min(1180px, calc(100% - 32px));
+      margin: -72px auto 0;
+      position: relative;
+      z-index: 5;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .metric {
+      min-height: 132px;
+      padding: 20px;
+      border: 1px solid rgba(169, 107, 17, .16);
+      border-radius: 8px;
+      background: rgba(255, 253, 248, .94);
+      box-shadow: var(--shadow);
+    }
+
+    .metric small {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .metric strong {
+      display: block;
+      margin-top: 10px;
+      color: var(--teal);
+      font-size: 34px;
+      line-height: 1.05;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .wrap {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 58px 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 22px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: 40px;
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      max-width: 480px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 34px;
+      padding: 7px 12px;
+      border: 1px solid rgba(0, 74, 89, .15);
+      border-radius: 8px;
+      color: var(--teal);
+      background: #fff;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .dot.green {
+      color: var(--green);
+    }
+
+    .dot.rose {
+      color: var(--rose);
+    }
+
+    .dot.violet {
+      color: var(--violet);
+    }
+
+    .table-card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .table-scroll {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      min-width: 1050px;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    th,
+    td {
+      padding: 14px 12px;
+      border-bottom: 1px solid #eadfce;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    th {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      color: #fff;
+      background: var(--teal);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    td:first-child,
+    th:first-child,
+    td:nth-child(2),
+    th:nth-child(2),
+    td:nth-child(5),
+    th:nth-child(5) {
+      text-align: left;
+    }
+
+    tbody tr:nth-child(even) {
+      background: #fbf7ee;
+    }
+
+    tbody tr:hover {
+      background: #f1ead9;
+    }
+
+    tbody tr {
+      cursor: pointer;
+    }
+
+    tbody tr.is-active {
+      background: #fff1c7;
+      box-shadow: inset 4px 0 0 var(--gold);
+    }
+
+    .unit {
+      color: var(--teal);
+      font-weight: 800;
+    }
+
+    .best {
+      color: #fff;
+      background: linear-gradient(135deg, var(--gold), var(--gold-2));
+      border-radius: 8px;
+      font-weight: 800;
+    }
+
+    .direction {
+      display: inline-flex;
+      min-width: 58px;
+      justify-content: center;
+      padding: 4px 8px;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .east {
+      background: var(--blue);
+    }
+
+    .north {
+      background: var(--violet);
+    }
+
+    .south {
+      background: var(--green);
+    }
+
+    .west {
+      background: var(--rose);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(320px, .8fr);
+      gap: 22px;
+      align-items: start;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .panel-inner {
+      padding: 22px;
+    }
+
+    .scenario-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .scenario {
+      min-height: 118px;
+      padding: 18px;
+      border-top: 4px solid var(--accent);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 10px 28px rgba(40, 34, 24, .08);
+    }
+
+    .scenario small {
+      display: block;
+      min-height: 36px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .scenario strong {
+      display: block;
+      color: var(--teal);
+      font-size: 24px;
+      line-height: 1.1;
+    }
+
+    .scenario span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .bars {
+      display: grid;
+      gap: 13px;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 74px 1fr 92px;
+      gap: 10px;
+      align-items: center;
+      font-size: 13px;
+    }
+
+    .bar-label {
+      color: var(--teal);
+      font-weight: 800;
+    }
+
+    .bar-track {
+      height: 12px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #efe5d4;
+    }
+
+    .bar-fill {
+      width: var(--w);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--green), var(--gold));
+    }
+
+    .bar-value {
+      color: var(--muted);
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .notes {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .notes li + li {
+      margin-top: 9px;
+    }
+
+    .locator {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .locator-map {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .map-stage {
+      position: relative;
+      width: 100%;
+      line-height: 0;
+    }
+
+    .map-stage img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      background: #f8f4ec;
+    }
+
+    .map-controls {
+      position: absolute;
+      right: 14px;
+      top: 14px;
+      z-index: 30;
+      display: flex;
+      gap: 8px;
+      line-height: 1;
+    }
+
+    .map-zoom-btn,
+    .overview-toggle {
+      height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 13px;
+      border: 1px solid rgba(255, 255, 255, .82);
+      border-radius: 8px;
+      color: #fff;
+      background: rgba(0, 74, 89, .82);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, .18);
+      cursor: pointer;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .map-zoom-btn:hover,
+    .overview-toggle:hover,
+    .overview-toggle.is-active {
+      background: var(--gold);
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(12, 14, 12, .86);
+    }
+
+    .lightbox.is-open {
+      display: flex;
+    }
+
+    .lightbox-stage {
+      position: relative;
+      width: min(96vw, calc(90vh * 1.421));
+      max-height: 90vh;
+      display: flex;
+      justify-content: center;
+      line-height: 0;
+    }
+
+    .lightbox-stage.is-price {
+      width: min(96vw, 780px);
+    }
+
+    .lightbox-stage img {
+      width: 100%;
+      height: auto;
+      max-height: 90vh;
+      display: block;
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, .4);
+      object-fit: contain;
+    }
+
+    .lightbox-stage.is-price img {
+      width: auto;
+      max-width: 100%;
+      max-height: 86vh;
+    }
+
+    .lightbox-caption {
+      position: fixed;
+      left: 24px;
+      top: 20px;
+      max-width: calc(100vw - 96px);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 1.25;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, .45);
+    }
+
+    .lightbox-close {
+      position: fixed;
+      right: 22px;
+      top: 18px;
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, .3);
+      border-radius: 8px;
+      color: #fff;
+      background: rgba(255, 255, 255, .12);
+      cursor: pointer;
+      font: inherit;
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    .lightbox-close:hover {
+      background: rgba(255, 255, 255, .22);
+    }
+
+    .map-marker {
+      position: absolute;
+      left: var(--x);
+      top: var(--y);
+      z-index: 2;
+      width: auto;
+      height: auto;
+      min-width: 96px;
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 16px;
+      transform: translate(-50%, calc(-100% - 46px));
+      border: 2px solid rgba(255, 255, 255, .9);
+      border-radius: 8px;
+      color: #fff;
+      background: linear-gradient(90deg, #ff8a00, #ed0808);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, .28);
+      cursor: pointer;
+      font: inherit;
+      font-size: 18px;
+      font-weight: 900;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: transform .18s ease, opacity .18s ease, box-shadow .18s ease;
+    }
+
+    .map-marker::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: calc(100% - 4px);
+      display: block;
+      width: 0;
+      height: 0;
+      transform: translateX(-50%);
+      border-left: 18px solid transparent;
+      border-right: 18px solid transparent;
+      border-top: 56px solid #ed4a10;
+      filter: drop-shadow(0 8px 7px rgba(0, 0, 0, .28));
+    }
+
+    .map-marker:hover,
+    .map-marker.is-active {
+      z-index: 5;
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(-50%, calc(-100% - 50px)) scale(1.04);
+      box-shadow: 0 12px 28px rgba(169, 107, 17, .38);
+    }
+
+    .locator.is-overview {
+      grid-template-columns: 1fr;
+    }
+
+    .locator.is-overview .locator-info {
+      display: none;
+    }
+
+    .locator-map.is-overview .map-marker {
+      display: none;
+    }
+
+    .overview-layer {
+      position: absolute;
+      inset: 0;
+      z-index: 12;
+      display: none;
+      pointer-events: none;
+      line-height: 1.2;
+    }
+
+    .locator-map.is-overview .overview-layer,
+    .lightbox.is-overview .overview-layer {
+      display: block;
+    }
+
+    .overview-lines {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .overview-lines line {
+      stroke: #ef3b12;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      vector-effect: non-scaling-stroke;
+      filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .3));
+      marker-end: url(#arrowLine);
+    }
+
+    .overview-card {
+      position: absolute;
+      left: var(--cx);
+      top: var(--cy);
+      width: clamp(136px, 12.4%, 172px);
+      overflow: visible;
+      transform: translate(-50%, -50%);
+      border: 2px solid #d99a31;
+      border-radius: 8px;
+      background: #fffdf8;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, .28);
+      pointer-events: auto;
+    }
+
+    .overview-title {
+      padding: 5px 7px;
+      overflow: hidden;
+      border-radius: 6px 6px 0 0;
+      color: #fff;
+      background: linear-gradient(90deg, #db3a08, #f15a12);
+      font-family: "Roboto", Arial, Helvetica, sans-serif;
+      font-size: clamp(16px, 1.45vw, 23px);
+      font-weight: 900;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .overview-title span {
+      font-family: "Roboto", Arial, Helvetica, sans-serif;
+      font-size: .4em;
+      font-weight: 800;
+    }
+
+    .overview-body {
+      padding: 6px 8px 7px;
+      color: var(--ink);
+      font-size: clamp(7px, .64vw, 9px);
+      line-height: 1.05;
+    }
+
+    .overview-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 6px;
+      min-height: 1.1em;
+    }
+
+    .overview-row strong {
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .overview-price {
+      margin-top: 5px;
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 4px;
+      font-family: "Roboto", Arial, Helvetica, sans-serif;
+      font-size: clamp(9px, .82vw, 12px);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .overview-price strong {
+      font-size: 1.85em;
+      line-height: .95;
+      font-weight: 900;
+    }
+
+    @media (max-width: 900px) {
+      .locator-map.is-overview .overview-card,
+      .lightbox.is-overview .overview-card {
+        transform: translate(-50%, -50%) scale(.72);
+      }
+    }
+
+    .locator-info {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .locator-info-inner {
+      padding: 22px;
+    }
+
+    .locator-info small {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .locator-info h3 {
+      margin: 6px 0 18px;
+      color: var(--teal);
+      font-size: 42px;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .price-lines {
+      display: grid;
+      gap: 10px;
+    }
+
+    .price-line {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 11px 0;
+      border-bottom: 1px solid #eadfce;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .price-line strong {
+      color: var(--ink);
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .featured-price {
+      margin: 18px 0;
+      padding: 18px;
+      border-radius: 8px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--gold), var(--teal));
+    }
+
+    .featured-price span {
+      display: block;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .featured-price strong {
+      display: block;
+      margin-top: 6px;
+      font-size: 28px;
+      line-height: 1.05;
+    }
+
+    .map-source {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .gallery figure {
+      margin: 0;
+      overflow: hidden;
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 12px 30px rgba(40, 34, 24, .12);
+    }
+
+    .gallery img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      display: block;
+      object-fit: cover;
+    }
+
+    .gallery figcaption {
+      padding: 12px 14px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .source-band {
+      padding: 26px 0;
+      color: #fff;
+      background: var(--teal);
+    }
+
+    .source-band .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .source-band p {
+      margin: 0;
+      color: rgba(255, 255, 255, .82);
+      font-size: 13px;
+    }
+
+    .source-band strong {
+      color: #fff;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .scenario-grid,
+      .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .split {
+        grid-template-columns: 1fr;
+      }
+
+      .locator {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        align-items: start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .topbar-inner {
+        min-height: 58px;
+      }
+
+      .nav a {
+        display: none;
+      }
+
+      .hero {
+        min-height: 590px;
+      }
+
+      h1 {
+        font-size: 44px;
+      }
+
+      .hero-copy {
+        font-size: 16px;
+      }
+
+      .metric strong {
+        font-size: 28px;
+      }
+
+      .section-head h2 {
+        font-size: 30px;
+      }
+
+      .hero-inner {
+        padding-top: 84px;
+      }
+
+      .hero-grid,
+      .scenario-grid,
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .metric {
+        min-height: auto;
+      }
+
+      section {
+        padding: 42px 0;
+      }
+
+      .bar-row {
+        grid-template-columns: 68px 1fr;
+      }
+
+      .bar-value {
+        grid-column: 2;
+        text-align: left;
+      }
+
+      .source-band .wrap {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .map-marker {
+        min-width: 72px;
+        min-height: 30px;
+        padding: 0 10px;
+        font-size: 12px;
+        transform: translate(-50%, calc(-100% - 34px));
+      }
+
+      .map-marker::after {
+        border-left-width: 12px;
+        border-right-width: 12px;
+        border-top-width: 42px;
+      }
+
+      .map-marker:hover,
+      .map-marker.is-active {
+        transform: translate(-50%, calc(-100% - 38px)) scale(1.04);
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .topbar,
+      .hero,
+      .gallery {
+        display: none;
+      }
+
+      .hero-grid {
+        margin-top: 0;
+      }
+
+      .metric,
+      .table-card,
+      .panel,
+      .scenario,
+      .gallery figure {
+        box-shadow: none;
+      }
+
+      section {
+        padding: 22px 0;
+      }
+
+      th {
+        color: #000;
+        background: #e7e0d2;
+      }
+
+      .table-scroll {
+        overflow: visible;
+      }
+
+      table {
+        min-width: 0;
+        font-size: 9px;
+      }
+
+      th,
+      td {
+        padding: 6px 4px;
+      }
+    }
+
+    .price-clickable {
+      cursor: pointer;
+      position: relative;
+    }
+
+    .price-line.price-clickable::before {
+      content: "";
+      position: absolute;
+      inset: 0 -12px;
+      border-radius: 6px;
+      background: rgba(169, 107, 17, 0.08);
+      opacity: 0;
+      transition: opacity 0.2s;
+      z-index: -1;
+    }
+
+    .price-line.price-clickable:hover::before {
+      opacity: 1;
+    }
+
+    .price-line.price-clickable:hover strong,
+    .price-line.price-clickable:focus-visible strong {
+      color: var(--teal);
+    }
+
+    .featured-price.price-clickable {
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .featured-price.price-clickable:hover,
+    .featured-price.price-clickable:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 74, 89, 0.22);
+    }
+
+    .price-clickable:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 4px;
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand" aria-label="Ramond Urbaniz">
+        <div class="brand-mark">RU</div>
+        <div class="brand-text">Ramond Urbaniz</div>
+      </div>
+      <nav class="nav" aria-label="Dieu huong bao cao">
+        <a href="#bang-gia">Bảng giá</a>
+        <a href="#vi-tri">Vị trí TMB</a>
+        <a href="#kich-ban">Kịch bản</a>
+        <a href="#ghi-chu">Ghi chú</a>
+        <button class="print-btn" type="button" onclick="window.print()">In báo cáo</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-label="Tong quan bao cao">
+      <div class="hero-inner">
+        <p class="eyebrow">Báo cáo tổng hợp giá</p>
+        <h1>10 căn Ramond Urbaniz theo 5 kịch bản thanh toán</h1>
+        <p class="hero-copy">
+          Dữ liệu lấy từ file Bao_cao_tong_hop.md, rà soát theo dòng C.4
+          "Tổng giá bán (đã gồm VAT&amp;KPBT)" trên từng phiếu tính giá.
+        </p>
+        <div class="chips" aria-label="Phan khu mau sac">
+          <span class="chip"><span class="dot green"></span>Thiên Thanh</span>
+          <span class="chip"><span class="dot rose"></span>Thảo Mộc</span>
+          <span class="chip"><span class="dot violet"></span>Diên Vĩ</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="hero-grid" aria-label="Chi so nhanh">
+      <article class="metric">
+        <small>Số lượng</small>
+        <strong>10 căn</strong>
+        <span>TT3, TT4 và DV2A</span>
+      </article>
+      <article class="metric">
+        <small>Diện tích đất</small>
+        <strong>75-90 m2</strong>
+        <span>Tổng DTXD 243,60-289,10 m2</span>
+      </article>
+      <article class="metric">
+        <small>Giá TTS thấp nhất</small>
+        <strong>4,21 tỷ</strong>
+        <span>DV2A-04: 4.209.522.053 VNĐ</span>
+      </article>
+      <article class="metric">
+        <small>Giá HTLS 24T cao nhất</small>
+        <strong>6,66 tỷ</strong>
+        <span>TT3-06 và TT3-08</span>
+      </article>
+    </div>
+
+    <section id="bang-gia">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>Bảng giá chi tiết</h2>
+            <div class="chips">
+              <span class="chip">Đơn vị: VNĐ</span>
+              <span class="chip">Đã gồm VAT &amp; KPBT</span>
+              <span class="chip">Version 1.3</span>
+            </div>
+          </div>
+          <p>
+            Mỗi dòng thể hiện một căn và toàn bộ các phương án giá:
+            HTLS 12T, HTLS đến 30/09/2027, HTLS 24T, thanh toán tiến độ và thanh toán sớm.
+          </p>
+        </div>
+
+        <div class="table-card">
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>STT</th>
+                  <th>Mã căn</th>
+                  <th>Đất</th>
+                  <th>DTXD</th>
+                  <th>Hướng</th>
+                  <th>HTLS 12T</th>
+                  <th>HTLS 30/09/2027</th>
+                  <th>HTLS 24T</th>
+                  <th>TTTĐ</th>
+                  <th>TTS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-unit="TT3-06">
+                  <td>1</td>
+                  <td class="unit">TT3-06</td>
+                  <td>90,00 m2</td>
+                  <td>289,10 m2</td>
+                  <td><span class="direction south">Nam</span></td>
+                  <td>6.373.283.438</td>
+                  <td>6.503.085.379</td>
+                  <td>6.658.010.180</td>
+                  <td>6.103.446.648</td>
+                  <td class="best">5.713.448.799</td>
+                </tr>
+                <tr data-unit="TT3-08">
+                  <td>2</td>
+                  <td class="unit">TT3-08</td>
+                  <td>90,00 m2</td>
+                  <td>289,10 m2</td>
+                  <td><span class="direction south">Nam</span></td>
+                  <td>6.373.283.438</td>
+                  <td>6.503.085.379</td>
+                  <td>6.658.010.180</td>
+                  <td>6.103.446.648</td>
+                  <td class="best">5.713.448.799</td>
+                </tr>
+                <tr data-unit="TT3-33">
+                  <td>3</td>
+                  <td class="unit">TT3-33</td>
+                  <td>75,00 m2</td>
+                  <td>243,60 m2</td>
+                  <td><span class="direction north">Bắc</span></td>
+                  <td>5.319.520.042</td>
+                  <td>5.426.007.870</td>
+                  <td>5.553.106.130</td>
+                  <td>5.106.088.408</td>
+                  <td class="best">4.727.371.537</td>
+                </tr>
+                <tr data-unit="TT3-45">
+                  <td>4</td>
+                  <td class="unit">TT3-45</td>
+                  <td>75,00 m2</td>
+                  <td>250,20 m2</td>
+                  <td><span class="direction north">Bắc</span></td>
+                  <td>5.105.112.592</td>
+                  <td>5.205.553.777</td>
+                  <td>5.325.435.199</td>
+                  <td>4.906.309.638</td>
+                  <td class="best">4.530.518.586</td>
+                </tr>
+                <tr data-unit="TT3-47">
+                  <td>5</td>
+                  <td class="unit">TT3-47</td>
+                  <td>75,00 m2</td>
+                  <td>250,20 m2</td>
+                  <td><span class="direction north">Bắc</span></td>
+                  <td>5.105.112.592</td>
+                  <td>5.205.553.777</td>
+                  <td>5.325.435.199</td>
+                  <td>4.906.309.638</td>
+                  <td class="best">4.530.518.586</td>
+                </tr>
+                <tr data-unit="TT4-48">
+                  <td>6</td>
+                  <td class="unit">TT4-48</td>
+                  <td>75,00 m2</td>
+                  <td>250,20 m2</td>
+                  <td><span class="direction south">Nam</span></td>
+                  <td>5.289.803.839</td>
+                  <td>5.395.571.069</td>
+                  <td>5.521.809.334</td>
+                  <td>5.078.115.563</td>
+                  <td class="best">4.699.747.347</td>
+                </tr>
+                <tr data-unit="DV2A-03">
+                  <td>7</td>
+                  <td class="unit">DV2A-03</td>
+                  <td>75,00 m2</td>
+                  <td>243,60 m2</td>
+                  <td><span class="direction east">Đông</span></td>
+                  <td>4.792.393.862</td>
+                  <td>4.885.088.141</td>
+                  <td>4.995.723.283</td>
+                  <td>4.612.333.422</td>
+                  <td class="best">4.240.290.806</td>
+                </tr>
+                <tr data-unit="DV2A-04">
+                  <td>8</td>
+                  <td class="unit">DV2A-04</td>
+                  <td>75,00 m2</td>
+                  <td>243,60 m2</td>
+                  <td><span class="direction east">Đông</span></td>
+                  <td>4.758.813.741</td>
+                  <td>4.850.539.625</td>
+                  <td>4.960.018.992</td>
+                  <td>4.581.096.093</td>
+                  <td class="best">4.209.522.053</td>
+                </tr>
+                <tr data-unit="TT4-34">
+                  <td>9</td>
+                  <td class="unit">TT4-34</td>
+                  <td>75,00 m2</td>
+                  <td>243,60 m2</td>
+                  <td><span class="direction south">Nam</span></td>
+                  <td>5.509.751.980</td>
+                  <td>5.621.725.552</td>
+                  <td>5.755.371.353</td>
+                  <td>5.283.048.329</td>
+                  <td class="best">4.901.677.054</td>
+                </tr>
+                <tr data-unit="TT4-03">
+                  <td>10</td>
+                  <td class="unit">TT4-03</td>
+                  <td>75,00 m2</td>
+                  <td>243,60 m2</td>
+                  <td><span class="direction north">Bắc</span></td>
+                  <td>5.054.460.577</td>
+                  <td>5.152.366.450</td>
+                  <td>5.269.221.940</td>
+                  <td>4.861.791.368</td>
+                  <td class="best">4.487.227.031</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="vi-tri">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>Vị trí căn trên TMB 09.09</h2>
+            <div class="chips">
+              <span class="chip">Nguồn: Google Drive</span>
+              <a class="chip" href="https://drive.google.com/file/d/1D0BXnJIPi50J_tKT0VMkSVKEepmXHvLw/view?usp=sharing" target="_blank" rel="noopener">Mở ảnh gốc</a>
+            </div>
+          </div>
+          <p>
+            Vùng vị trí hiển thị theo căn đang được chọn trong bảng giá,
+            kèm phương án giá nổi bật để đối chiếu nhanh.
+          </p>
+        </div>
+
+        <div class="locator">
+          <div class="locator-map" id="locatorMap" aria-label="So do vi tri can">
+            <div class="map-stage">
+              <img id="mapPreview" src="https://drive.google.com/thumbnail?id=1D0BXnJIPi50J_tKT0VMkSVKEepmXHvLw&amp;sz=w3000" alt="Sơ đồ tổng mặt bằng Ramond Urbaniz TMB 09.09">
+              <div class="map-controls">
+                <button class="overview-toggle" type="button" id="overviewToggle" aria-pressed="false">Tổng quan</button>
+                <button class="map-zoom-btn" type="button" id="openMapZoom">Phóng to</button>
+              </div>
+              <button class="map-marker" type="button" data-unit="TT3-06" style="--x: 61.21%; --y: 38.62%;">TT3-06</button>
+              <button class="map-marker" type="button" data-unit="TT3-08" style="--x: 62.17%; --y: 38.62%;">TT3-08</button>
+              <button class="map-marker" type="button" data-unit="TT3-33" style="--x: 43.59%; --y: 50.92%;">TT3-33</button>
+              <button class="map-marker" type="button" data-unit="TT3-45" style="--x: 38.44%; --y: 51.71%;">TT3-45</button>
+              <button class="map-marker" type="button" data-unit="TT3-47" style="--x: 38.91%; --y: 48.71%;">TT3-47</button>
+              <button class="map-marker" type="button" data-unit="TT4-48" style="--x: 38.11%; --y: 48.71%;">TT4-48</button>
+              <button class="map-marker" type="button" data-unit="TT4-34" style="--x: 43.34%; --y: 47.78%;">TT4-34</button>
+              <button class="map-marker" type="button" data-unit="TT4-03" style="--x: 51.62%; --y: 55.86%;">TT4-03</button>
+              <button class="map-marker" type="button" data-unit="DV2A-03" style="--x: 51.95%; --y: 59.58%;">DV2A-03</button>
+              <button class="map-marker" type="button" data-unit="DV2A-04" style="--x: 51.95%; --y: 60.91%;">DV2A-04</button>
+              <div class="overview-layer" aria-hidden="true">
+                <svg class="overview-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <marker id="arrowLine" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="1.5" markerHeight="1.5" orient="auto" markerUnits="userSpaceOnUse">
+                      <path d="M 0 1 L 10 5 L 0 9 z" fill="#ef3b12"></path>
+                    </marker>
+                  </defs>
+                  <line x1="36" y1="12" x2="61.21" y2="38.62"></line>
+                  <line x1="55" y1="12" x2="62.17" y2="38.62"></line>
+                  <line x1="50" y1="81" x2="43.59" y2="50.92"></line>
+                  <line x1="32" y1="81" x2="38.44" y2="51.71"></line>
+                  <line x1="16" y1="62" x2="38.91" y2="48.71"></line>
+                  <line x1="15" y1="43" x2="38.11" y2="48.71"></line>
+                  <line x1="19" y1="24" x2="43.34" y2="47.78"></line>
+                  <line x1="73" y1="26" x2="51.62" y2="55.86"></line>
+                  <line x1="69" y1="54" x2="51.95" y2="59.58"></line>
+                  <line x1="69" y1="86" x2="51.95" y2="60.91"></line>
+                </svg>
+                <article class="overview-card" style="--cx: 36%; --cy: 12%;">
+                  <div class="overview-title">TT3-06 <span>Liền kề</span></div>
+                  <div class="overview-body">
+                    <div class="overview-row"><span>Hướng:</span><strong>Nam</strong></div>
+                    <div class="overview-row"><span>TCBG:</span><strong>Giãn xây 24T</strong></div>
+                    <div class="overview-row"><span>DT Đất:</span><strong>90m2</strong></div>
+                    <div class="overview-row"><span>DTXD:</span><strong>289,1m2</strong></div>
+                    <div class="overview-row"><span>HTLS 24T:</span><strong>6tỷ658</strong></div>
+                    <div class="overview-row"><span>HTLS 12T:</span><strong>6tỷ373</strong></div>
+                    <div class="overview-row"><span>HTLS 30/09:</span><strong>6tỷ503</strong></div>
+                    <div class="overview-row"><span>TTTĐ:</span><strong>6tỷ103</strong></div>
+                    <div class="overview-price"><span>Giá TTS:</span><strong>5tỷ713</strong></div>
+                  </div>
+                </article>
+                <article class="overview-card" style="--cx: 55%; --cy: 12%;">
+                  <div class="overview-title">TT3-08 <span>Liền kề</span></div>
+                  <div class="overview-body">
+                    <div class="overview-row"><span>Hướng:</span><strong>Nam</strong></div>
+                    <div class="overview-row"><span>TCBG:</span><strong>Giãn xây 24T</strong></div>
+                    <div class="overview-row"><span>DT Đất:</span><strong>90m2</strong></div>
+                    <div class="overview-row"><span>DTXD:</span><strong>289,1m2</strong></div>
+                    <div class="overview-row"><span>HTLS 24T:</span><strong>6tỷ658</strong></div>
+                    <div class="overview-row"><span>HTLS 12T:</span><strong>6tỷ373</strong></div>
+                    <div class="overview-row"><span>HTLS 30/09:</span><strong>6tỷ503</strong></div>
+                    <div class="overview-row"><span>TTTĐ:</span><strong>6tỷ103</strong></div>
+                    <div class="overview-price"><span>Giá TTS:</span><strong>5tỷ713</strong></div>
+                  </div>
+                </article>
+                <article class="overview-card" style="--cx: 50%; --cy: 81%;">
+                  <div class="overview-title">TT3-33 <span>Liền kề</span></div>
+                  <div class="overview-body">
+                    <div class="overview-row"><span>Hướng:</span><strong>Bắc</strong></div>
+                    <div class="overview-row"><span>TCBG:</span><strong>Giãn xây 24T</strong></div>
+                    <div class="overview-row"><span>DT Đất:</span><strong>75m2</strong></div>
+                    <div class="overview-row"><span>DTXD:</span><strong>243,6m2</strong></div>
+                    <div class="overview-row"><span>HTLS 24T:</span><strong>5tỷ553</strong></div>
+                    <div class="overview-row"><span>HTLS 12T:</span><strong>5tỷ320</strong></div>
+                    <div class="overview-row"><span>HTLS 30/09:</span><strong>5tỷ426</strong></div>
+                    <div class="overview-row"><span>TTTĐ:</span><strong>5tỷ106</strong></div>
+                    <div class="overview-price"><span>Giá TTS:</span><strong>4tỷ727</strong></div>
+                  </div>
+                </article>
+                <article class="overview-card" style="--cx: 32%; --cy: 81%;">
+                  <div class="overview-title">TT3-45 <span>Liền kề</span></div>
+                  <div class="overview-body">
+                    <div class="overview-row"><span>Hướng:</span><strong>Bắc</strong></div>
+                    <div class="overview-row"><span>TCBG:</span><strong>Giãn xây 24T</strong></div>
+                    <div class="overview-row"><span>DT Đất:</span><strong>75m2</strong></div>
+                    <div class="overview-row"><span>DTXD:</span><strong>250,2m2</strong></div>
+                    <div class="overview-row"><span>HTLS 24T:</span><strong>5tỷ325</strong></div>
+                    <div class="overview-row"><span>HTLS 12T:</span><strong>5tỷ105</strong></div>
+                    <div class="overview-row"><span>HTLS 30/09:</span><strong>5tỷ206</strong></div>
+                    <div class="overview-row"><span>TTTĐ:</span><strong>4tỷ906</strong></div>
+                    <div class="overview-price"><span>Giá TTS:</span><strong>4tỷ531</strong></div>
+                  </div>
+                </article>
+                <article class="overview-card" style="--cx: 16%; --cy: 62%;">
+                  <div class="overview-title">TT3-47 <span>Liền kề</span></div>
+                  <div class="overview-body">
+                    <div class="overview-row"><span>Hướng:</span><strong>Bắc</strong></div>
+                    <div class="overview-row"><span>TCBG:</span><strong>Giãn xây 24T</strong></div>
+                    <div class="overview-row"><span>DT Đất:</span><strong>75m2</strong></div>
+                    <div class="overview-row"><span>DTXD:</span><strong>250,2m2</strong></div>
+                    <div class="overview-row"><span>HTLS 24T:</span><strong>5tỷ325</strong></div>
+                    <div class="overview-row"><span>HTLS 12T:</span><strong>5tỷ105</strong></div>
+                    <div class="overview-row"><span>HTLS 30/09:</span><strong>5tỷ206</strong></div>
+                    <div class="overview-row"><span>TTTĐ:</span><strong>4tỷ906</strong></div>
+                    <div class="overview-price"><span>Giá TTS:</span><strong>4tỷ531</strong></div>
+                  </div>
+                </article>
+                <article class="overview-card" style="--cx: 15%; --cy: 43%;">
+                  <div class="overview-title">TT4-48 <span>Liền kề</span></div>
+                  <div class="overview-body">
+                    <div class="overview-row"><span>Hướng:</span><strong>Nam</strong></div>
+                    <div class="overview-row"><span>TCBG:</span><strong>Giãn xây 24T</strong></div>
+                    <div class="overview-row"><span>DT Đất:</span><strong>75m2</strong></div>
+                    <div class="overview-row"><span>DTXD:</span><strong>250,2m2</strong></div>
+                    <div class="overview-row"><span>HTLS 24T:</span><strong>5tỷ522</strong></div>
+                    <div class="overview-row"><span>HTLS 12T:</span><strong>5tỷ290</strong></div>
+                    <div class="overview-row"><span>HTLS 30/09:</span><strong>5tỷ396</strong></div>
+                    <div class="overview-row"><span>TTTĐ:</span><strong>5tỷ078</strong></div>
+                    <div class="overview-price"><span>Giá TTS:</span><strong>4tỷ700</strong></div>
+                  </div>
+                </article>
+                <article class="overview-card" style="--cx: 19%; --cy: 24%;">
+                  <div class="overview-title">TT4-34 <span>Liền kề</span></div>
+                  <div class="overview-body">
+                    <div class="overview-row"><span>Hướng:</span><strong>Nam</strong></div>
+                    <div class="overview-row"><span>TCBG:</span><strong>Giãn xây 24T</strong></div>
+                    <div class="overview-row"><span>DT Đất:</span><strong>75m2</strong></div>
+                    <div class="overview-row"><span>DTXD:</span><strong>243,6m2</strong></div>
+                    <div class="overview-row"><span>HTLS 24T:</span><strong>5tỷ755</strong></div>
+                    <div class="overview-row"><span>HTLS 12T:</span><strong>5tỷ510</strong></div>
+                    <div class="overview-row"><span>HTLS 30/09:</span><strong>5tỷ622</strong></div>
+                    <div class="overview-row"><span>TTTĐ:</span><strong>5tỷ283</strong></div>
+                    <div class="overview-price"><span>Giá TTS:</span><strong>4tỷ902</strong></div>
+                  </div>
+                </article>
+                <article class="overview-card" style="--cx: 73%; --cy: 26%;">
+                  <div class="overview-title">TT4-03 <span>Liền kề</span></div>
+                  <div class="overview-body">
+                    <div class="overview-row"><span>Hướng:</span><strong>Bắc</strong></div>
+                    <div class="overview-row"><span>TCBG:</span><strong>Giãn xây 24T</strong></div>
+                    <div class="overview-row"><span>DT Đất:</span><strong>75m2</strong></div>
+                    <div class="overview-row"><span>DTXD:</span><strong>243,6m2</strong></div>
+                    <div class="overview-row"><span>HTLS 24T:</span><strong>5tỷ269</strong></div>
+                    <div class="overview-row"><span>HTLS 12T:</span><strong>5tỷ054</strong></div>
+                    <div class="overview-row"><span>HTLS 30/09:</span><strong>5tỷ152</strong></div>
+                    <div class="overview-row"><span>TTTĐ:</span><strong>4tỷ862</strong></div>
+                    <div class="overview-price"><span>Giá TTS:</span><strong>4tỷ487</strong></div>
+                  </div>
+                </article>
+                <article class="overview-card" style="--cx: 69%; --cy: 54%;">
+                  <div class="overview-title">DV2A-03 <span>Liền kề</span></div>
+                  <div class="overview-body">
+                    <div class="overview-row"><span>Hướng:</span><strong>Đông</strong></div>
+                    <div class="overview-row"><span>TCBG:</span><strong>Giãn xây 24T</strong></div>
+                    <div class="overview-row"><span>DT Đất:</span><strong>75m2</strong></div>
+                    <div class="overview-row"><span>DTXD:</span><strong>243,6m2</strong></div>
+                    <div class="overview-row"><span>HTLS 24T:</span><strong>4tỷ996</strong></div>
+                    <div class="overview-row"><span>HTLS 12T:</span><strong>4tỷ792</strong></div>
+                    <div class="overview-row"><span>HTLS 30/09:</span><strong>4tỷ885</strong></div>
+                    <div class="overview-row"><span>TTTĐ:</span><strong>4tỷ612</strong></div>
+                    <div class="overview-price"><span>Giá TTS:</span><strong>4tỷ240</strong></div>
+                  </div>
+                </article>
+                <article class="overview-card" style="--cx: 69%; --cy: 86%;">
+                  <div class="overview-title">DV2A-04 <span>Liền kề</span></div>
+                  <div class="overview-body">
+                    <div class="overview-row"><span>Hướng:</span><strong>Đông</strong></div>
+                    <div class="overview-row"><span>TCBG:</span><strong>Giãn xây 24T</strong></div>
+                    <div class="overview-row"><span>DT Đất:</span><strong>75m2</strong></div>
+                    <div class="overview-row"><span>DTXD:</span><strong>243,6m2</strong></div>
+                    <div class="overview-row"><span>HTLS 24T:</span><strong>4tỷ960</strong></div>
+                    <div class="overview-row"><span>HTLS 12T:</span><strong>4tỷ759</strong></div>
+                    <div class="overview-row"><span>HTLS 30/09:</span><strong>4tỷ851</strong></div>
+                    <div class="overview-row"><span>TTTĐ:</span><strong>4tỷ581</strong></div>
+                    <div class="overview-price"><span>Giá TTS:</span><strong>4tỷ210</strong></div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+
+          <aside class="locator-info" aria-label="Thong tin gia can dang chon">
+            <div class="locator-info-inner">
+              <small>Căn đang xem</small>
+              <h3 id="mapUnit">TT3-06</h3>
+
+              <div class="featured-price price-clickable" data-price-key="tts" role="button" tabindex="0" title="Bảng giá Thanh toán sớm">
+                <span>Thanh toán sớm</span>
+                <strong id="mapTts">5.713.448.799</strong>
+              </div>
+
+              <div class="price-lines">
+                <div class="price-line"><span>Hướng</span><strong id="mapDirection">Nam</strong></div>
+                <div class="price-line"><span>Diện tích đất</span><strong id="mapLand">90,00 m2</strong></div>
+                <div class="price-line"><span>Tổng DTXD</span><strong id="mapBuild">289,10 m2</strong></div>
+                <div class="price-line price-clickable" data-price-key="htls12" role="button" tabindex="0" title="Bảng giá HTLS 12T"><span>HTLS 12T</span><strong id="mapHtls12">6.373.283.438</strong></div>
+                <div class="price-line price-clickable" data-price-key="htlsSep" role="button" tabindex="0" title="Bảng giá HTLS đến 30/09/2027"><span>HTLS đến 30/09/2027</span><strong id="mapHtlsSep">6.503.085.379</strong></div>
+                <div class="price-line price-clickable" data-price-key="htls24" role="button" tabindex="0" title="Bảng giá HTLS 24T"><span>HTLS 24T</span><strong id="mapHtls24">6.658.010.180</strong></div>
+                <div class="price-line price-clickable" data-price-key="tttd" role="button" tabindex="0" title="Bảng giá TTTĐ"><span>TTTĐ</span><strong id="mapTttd">6.103.446.648</strong></div>
+              </div>
+
+              <p class="map-source">Ảnh TMB 09.09 được tải từ Google Drive để giảm dung lượng lưu trên GitHub.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="kich-ban">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>So sánh kịch bản</h2>
+            <div class="chips">
+              <span class="chip">TTS trung bình thấp hơn TTTĐ khoảng 378,8 triệu/căn</span>
+            </div>
+          </div>
+          <p>
+            Các số trung bình giúp nhìn nhanh độ lệch giữa phương án thanh toán sớm,
+            thanh toán tiến độ và các gói hỗ trợ lãi suất.
+          </p>
+        </div>
+
+        <div class="scenario-grid">
+          <article class="scenario" style="--accent: var(--green);">
+            <small>Thanh toán sớm</small>
+            <strong>4,78 tỷ</strong>
+            <span>Trung bình 10 căn</span>
+          </article>
+          <article class="scenario" style="--accent: var(--gold);">
+            <small>Thanh toán tiến độ</small>
+            <strong>5,15 tỷ</strong>
+            <span>Trung bình 10 căn</span>
+          </article>
+          <article class="scenario" style="--accent: var(--blue);">
+            <small>HTLS 12T</small>
+            <strong>5,37 tỷ</strong>
+            <span>Đến 30/04/2027</span>
+          </article>
+          <article class="scenario" style="--accent: var(--violet);">
+            <small>HTLS 30/09</small>
+            <strong>5,47 tỷ</strong>
+            <span>Đến 30/09/2027</span>
+          </article>
+          <article class="scenario" style="--accent: var(--rose);">
+            <small>HTLS 24T</small>
+            <strong>5,60 tỷ</strong>
+            <span>Đến 30/04/2028</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap split">
+        <article class="panel">
+          <div class="panel-inner">
+            <div class="section-head">
+              <div>
+                <h2>Phổ giá thanh toán sớm</h2>
+              </div>
+              <p>Biểu đồ dùng phương án TTS 100% để nhìn nhanh nhóm giá thấp, trung và cao.</p>
+            </div>
+            <div class="bars" aria-label="Pho gia TTS">
+              <div class="bar-row">
+                <span class="bar-label">TT3-06</span>
+                <span class="bar-track"><span class="bar-fill" style="--w: 100%;"></span></span>
+                <span class="bar-value">5,71 tỷ</span>
+              </div>
+              <div class="bar-row">
+                <span class="bar-label">TT3-08</span>
+                <span class="bar-track"><span class="bar-fill" style="--w: 100%;"></span></span>
+                <span class="bar-value">5,71 tỷ</span>
+              </div>
+              <div class="bar-row">
+                <span class="bar-label">TT4-34</span>
+                <span class="bar-track"><span class="bar-fill" style="--w: 86%;"></span></span>
+                <span class="bar-value">4,90 tỷ</span>
+              </div>
+              <div class="bar-row">
+                <span class="bar-label">TT3-33</span>
+                <span class="bar-track"><span class="bar-fill" style="--w: 83%;"></span></span>
+                <span class="bar-value">4,73 tỷ</span>
+              </div>
+              <div class="bar-row">
+                <span class="bar-label">TT4-48</span>
+                <span class="bar-track"><span class="bar-fill" style="--w: 82%;"></span></span>
+                <span class="bar-value">4,70 tỷ</span>
+              </div>
+              <div class="bar-row">
+                <span class="bar-label">TT3-45</span>
+                <span class="bar-track"><span class="bar-fill" style="--w: 79%;"></span></span>
+                <span class="bar-value">4,53 tỷ</span>
+              </div>
+              <div class="bar-row">
+                <span class="bar-label">TT3-47</span>
+                <span class="bar-track"><span class="bar-fill" style="--w: 79%;"></span></span>
+                <span class="bar-value">4,53 tỷ</span>
+              </div>
+              <div class="bar-row">
+                <span class="bar-label">TT4-03</span>
+                <span class="bar-track"><span class="bar-fill" style="--w: 79%;"></span></span>
+                <span class="bar-value">4,49 tỷ</span>
+              </div>
+              <div class="bar-row">
+                <span class="bar-label">DV2A-03</span>
+                <span class="bar-track"><span class="bar-fill" style="--w: 74%;"></span></span>
+                <span class="bar-value">4,24 tỷ</span>
+              </div>
+              <div class="bar-row">
+                <span class="bar-label">DV2A-04</span>
+                <span class="bar-track"><span class="bar-fill" style="--w: 74%;"></span></span>
+                <span class="bar-value">4,21 tỷ</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel" id="ghi-chu">
+          <div class="panel-inner">
+            <div class="section-head">
+              <div>
+                <h2>Ghi chú</h2>
+              </div>
+            </div>
+            <ul class="notes">
+              <li>Thông tin "Hướng" được cập nhật theo đúng hướng ghi trên ảnh từng căn và theo dãy nhà.</li>
+              <li>Giá trong bảng lấy tại mục C.4, dòng "Tổng giá bán (đã gồm VAT&amp;KPBT)".</li>
+              <li>TT3-08 áp dụng dữ liệu giống TT3-06 theo yêu cầu.</li>
+              <li>TT3-47 áp dụng dữ liệu giống TT3-45 theo yêu cầu.</li>
+              <li>TTS là thanh toán sớm 100%, chiết khấu cao nhất.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>Hình ảnh tham chiếu</h2>
+          </div>
+          <p>Ảnh cục bộ trong thư mục dự án được dùng để báo cáo có ngữ cảnh trực quan khi gửi hoặc in.</p>
+        </div>
+        <div class="gallery">
+          <figure>
+            <img src="TT3-06_1.jpg" alt="Can TT3-06">
+            <figcaption>TT3-06</figcaption>
+          </figure>
+          <figure>
+            <img src="TT4-34_1.jpg" alt="Can TT4-34">
+            <figcaption>TT4-34</figcaption>
+          </figure>
+          <figure>
+            <img src="DV2A-04_1.jpg" alt="Can DV2A-04">
+            <figcaption>DV2A-04</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="source-band">
+    <div class="wrap">
+      <p><strong>Nguồn dữ liệu:</strong> Bao_cao_tong_hop.md trong thư mục dự án.</p>
+      <p><strong>Phối màu tham khảo:</strong> ramondurbaniz.com</p>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="mapLightbox" aria-hidden="true" role="dialog" aria-label="Phong to so do TMB">
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+    <button class="lightbox-close" type="button" id="closeMapZoom" aria-label="Dong anh phong to">×</button>
+    <div class="lightbox-stage" id="lightboxStage">
+      <img src="https://drive.google.com/thumbnail?id=1D0BXnJIPi50J_tKT0VMkSVKEepmXHvLw&amp;sz=w3000" alt="Sơ đồ tổng mặt bằng Ramond Urbaniz phóng to">
+    </div>
+  </div>
+
+  <script>
+    let currentUnit = "TT3-06";
+    const unitData = {
+      "TT3-06": {
+        direction: "Nam",
+        land: "90,00 m2",
+        build: "289,10 m2",
+        htls12: "6.373.283.438",
+        htlsSep: "6.503.085.379",
+        htls24: "6.658.010.180",
+        tttd: "6.103.446.648",
+        tts: "5.713.448.799",
+      },
+      "TT3-08": {
+        direction: "Nam",
+        land: "90,00 m2",
+        build: "289,10 m2",
+        htls12: "6.373.283.438",
+        htlsSep: "6.503.085.379",
+        htls24: "6.658.010.180",
+        tttd: "6.103.446.648",
+        tts: "5.713.448.799",
+      },
+      "TT3-33": {
+        direction: "Bắc",
+        land: "75,00 m2",
+        build: "243,60 m2",
+        htls12: "5.319.520.042",
+        htlsSep: "5.426.007.870",
+        htls24: "5.553.106.130",
+        tttd: "5.106.088.408",
+        tts: "4.727.371.537",
+      },
+      "TT3-45": {
+        direction: "Bắc",
+        land: "75,00 m2",
+        build: "250,20 m2",
+        htls12: "5.105.112.592",
+        htlsSep: "5.205.553.777",
+        htls24: "5.325.435.199",
+        tttd: "4.906.309.638",
+        tts: "4.530.518.586",
+      },
+      "TT3-47": {
+        direction: "Bắc",
+        land: "75,00 m2",
+        build: "250,20 m2",
+        htls12: "5.105.112.592",
+        htlsSep: "5.205.553.777",
+        htls24: "5.325.435.199",
+        tttd: "4.906.309.638",
+        tts: "4.530.518.586",
+      },
+      "TT4-48": {
+        direction: "Nam",
+        land: "75,00 m2",
+        build: "250,20 m2",
+        htls12: "5.289.803.839",
+        htlsSep: "5.395.571.069",
+        htls24: "5.521.809.334",
+        tttd: "5.078.115.563",
+        tts: "4.699.747.347",
+      },
+      "DV2A-03": {
+        direction: "Đông",
+        land: "75,00 m2",
+        build: "243,60 m2",
+        htls12: "4.792.393.862",
+        htlsSep: "4.885.088.141",
+        htls24: "4.995.723.283",
+        tttd: "4.612.333.422",
+        tts: "4.240.290.806",
+      },
+      "DV2A-04": {
+        direction: "Đông",
+        land: "75,00 m2",
+        build: "243,60 m2",
+        htls12: "4.758.813.741",
+        htlsSep: "4.850.539.625",
+        htls24: "4.960.018.992",
+        tttd: "4.581.096.093",
+        tts: "4.209.522.053",
+      },
+      "TT4-34": {
+        direction: "Nam",
+        land: "75,00 m2",
+        build: "243,60 m2",
+        htls12: "5.509.751.980",
+        htlsSep: "5.621.725.552",
+        htls24: "5.755.371.353",
+        tttd: "5.283.048.329",
+        tts: "4.901.677.054",
+      },
+      "TT4-03": {
+        direction: "Bắc",
+        land: "75,00 m2",
+        build: "243,60 m2",
+        htls12: "5.054.460.577",
+        htlsSep: "5.152.366.450",
+        htls24: "5.269.221.940",
+        tttd: "4.861.791.368",
+        tts: "4.487.227.031",
+      }
+    };
+
+    const priceLabels = {
+      tts: "Thanh toán sớm",
+      tttd: "TTTĐ",
+      htls12: "HTLS 12T",
+      htlsSep: "HTLS đến 30/09/2027",
+      htls24: "HTLS 24T",
+    };
+
+    const priceImageAliases = {
+      "TT3-08": "TT3-06",
+      "TT3-47": "TT3-45",
+    };
+
+    const priceImageMap = {
+      "TT3-06": {
+        tts: "TT3-06_3.jpg",
+        tttd: "TT3-06_2.jpg",
+        htls12: "TT3-06_4.jpg",
+        htlsSep: "TT3-06_1.jpg",
+        htls24: "TT3-06_5.jpg",
+      },
+      "TT3-33": {
+        tts: "TT3-33_1.jpg",
+        tttd: "TT3-33_3.jpg",
+        htls12: "TT3-33_5.jpg",
+        htlsSep: "TT3-33_4.jpg",
+        htls24: "TT3-33_2.jpg",
+      },
+      "TT3-45": {
+        tts: "TT3-45_4.jpg",
+        tttd: "TT3-45_3.jpg",
+        htls12: "TT3-45_5.jpg",
+        htlsSep: "TT3-45_2.jpg",
+        htls24: "TT3-45_1.jpg",
+      },
+      "TT4-48": {
+        tts: "TT4-48_5.jpg",
+        tttd: "TT4-48_4.jpg",
+        htls12: "TT4-48_2.jpg",
+        htlsSep: "TT4-48_3.jpg",
+        htls24: "TT4-48_1.jpg",
+      },
+      "DV2A-03": {
+        tts: "DV2A-03_3.jpg",
+        tttd: "DV2A-03_5.jpg",
+        htls12: "DV2A-03_1.jpg",
+        htlsSep: "DV2A-03_2.jpg",
+        htls24: "DV2A-03_4.jpg",
+      },
+      "DV2A-04": {
+        tts: "DV2A-04_4.jpg",
+        tttd: "DV2A-04_5.jpg",
+        htls12: "DV2A-04_2.jpg",
+        htlsSep: "DV2A-04_3.jpg",
+        htls24: "DV2A-04_1.jpg",
+      },
+      "TT4-34": {
+        tts: "TT4-34_2.jpg",
+        tttd: "TT4-34_1.jpg",
+        htls12: "TT4-34_5.jpg",
+        htlsSep: "TT4-34_3.jpg",
+        htls24: "TT4-34_4.jpg",
+      },
+      "TT4-03": {
+        tts: "TT4-03_1.jpg",
+        tttd: "TT4-03_2.jpg",
+        htls12: "TT4-03_5.jpg",
+        htlsSep: "TT4-03_3.jpg",
+        htls24: "TT4-03_4.jpg",
+      },
+    };
+
+    const rows = Array.from(document.querySelectorAll("tbody tr[data-unit]"));
+    const markers = Array.from(document.querySelectorAll(".map-marker[data-unit]"));
+    const locator = document.querySelector(".locator");
+    const locatorMap = document.getElementById("locatorMap");
+    const overviewToggle = document.getElementById("overviewToggle");
+    const overviewLayer = document.querySelector(".map-stage .overview-layer");
+    const fields = {
+      unit: document.getElementById("mapUnit"),
+      direction: document.getElementById("mapDirection"),
+      land: document.getElementById("mapLand"),
+      build: document.getElementById("mapBuild"),
+      tts: document.getElementById("mapTts"),
+      htls12: document.getElementById("mapHtls12"),
+      htlsSep: document.getElementById("mapHtlsSep"),
+      htls24: document.getElementById("mapHtls24"),
+      tttd: document.getElementById("mapTttd"),
+    };
+
+    function setActiveUnit(unit, revealMap) {
+      currentUnit = unit;
+      const data = unitData[unit];
+      if (!data) return;
+
+      rows.forEach((row) => row.classList.toggle("is-active", row.dataset.unit === unit));
+      markers.forEach((marker) => marker.classList.toggle("is-active", marker.dataset.unit === unit));
+
+      fields.unit.textContent = unit;
+      fields.direction.textContent = data.direction;
+      fields.land.textContent = data.land;
+      fields.build.textContent = data.build;
+      fields.tts.textContent = data.tts;
+      fields.htls12.textContent = data.htls12;
+      fields.htlsSep.textContent = data.htlsSep;
+      fields.htls24.textContent = data.htls24;
+      fields.tttd.textContent = data.tttd;
+
+      if (revealMap) {
+        document.getElementById("vi-tri").scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+
+    rows.forEach((row) => {
+      row.addEventListener("mouseenter", () => setActiveUnit(row.dataset.unit, false));
+      row.addEventListener("click", () => setActiveUnit(row.dataset.unit, true));
+    });
+
+    markers.forEach((marker) => {
+      marker.addEventListener("mouseenter", () => setActiveUnit(marker.dataset.unit, false));
+      marker.addEventListener("click", () => setActiveUnit(marker.dataset.unit, false));
+    });
+
+    function setOverviewMode(enabled) {
+      locator.classList.toggle("is-overview", enabled);
+      locatorMap.classList.toggle("is-overview", enabled);
+      overviewToggle.classList.toggle("is-active", enabled);
+      overviewToggle.setAttribute("aria-pressed", String(enabled));
+    }
+
+    overviewToggle.addEventListener("click", () => {
+      setOverviewMode(!locatorMap.classList.contains("is-overview"));
+    });
+
+    const mapLightbox = document.getElementById("mapLightbox");
+    const lightboxStage = document.getElementById("lightboxStage");
+    const openMapZoom = document.getElementById("openMapZoom");
+    const closeMapZoom = document.getElementById("closeMapZoom");
+    const mapPreview = document.getElementById("mapPreview");
+    const lightboxImg = lightboxStage.querySelector("img");
+    const lightboxCaption = document.getElementById("lightboxCaption");
+
+    function openMapLightbox() {
+      lightboxImg.src = "https://drive.google.com/thumbnail?id=1D0BXnJIPi50J_tKT0VMkSVKEepmXHvLw&sz=w3000";
+      lightboxImg.alt = "Sơ đồ tổng mặt bằng Ramond Urbaniz phóng to";
+      lightboxStage.classList.remove("is-price");
+      lightboxCaption.textContent = "";
+      lightboxStage.querySelector(".overview-layer")?.remove();
+      if (locatorMap.classList.contains("is-overview")) {
+        lightboxStage.appendChild(overviewLayer.cloneNode(true));
+        mapLightbox.classList.add("is-overview");
+      } else {
+        mapLightbox.classList.remove("is-overview");
+      }
+      mapLightbox.classList.add("is-open");
+      mapLightbox.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function openPriceLightbox(priceKey) {
+      const label = priceLabels[priceKey];
+      const imageUnit = priceImageAliases[currentUnit] || currentUnit;
+      const imageSrc = priceImageMap[imageUnit]?.[priceKey];
+      if (!label || !imageSrc) return;
+
+      lightboxImg.src = imageSrc;
+      lightboxImg.alt = `${label} - ${currentUnit}`;
+      lightboxStage.classList.add("is-price");
+      lightboxCaption.textContent = `${currentUnit} - ${label}`;
+      lightboxStage.querySelector(".overview-layer")?.remove();
+      mapLightbox.classList.remove("is-overview");
+      mapLightbox.classList.add("is-open");
+      mapLightbox.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    document.querySelectorAll(".price-clickable").forEach(el => {
+      el.addEventListener("click", () => {
+        openPriceLightbox(el.dataset.priceKey);
+      });
+      el.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          openPriceLightbox(el.dataset.priceKey);
+        }
+      });
+    });
+
+    function closeLightbox() {
+      mapLightbox.classList.remove("is-open");
+      mapLightbox.classList.remove("is-overview");
+      lightboxStage.classList.remove("is-price");
+      mapLightbox.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      lightboxCaption.textContent = "";
+      lightboxStage.querySelector(".overview-layer")?.remove();
+    }
+
+    openMapZoom.addEventListener("click", openMapLightbox);
+    mapPreview.addEventListener("click", openMapLightbox);
+    closeMapZoom.addEventListener("click", closeLightbox);
+    mapLightbox.addEventListener("click", (event) => {
+      if (event.target === mapLightbox) closeLightbox();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && mapLightbox.classList.contains("is-open")) closeLightbox();
+    });
+
+    setActiveUnit("TT3-06", false);
+
+    if (new URLSearchParams(window.location.search).has("overview")) {
+      setOverviewMode(true);
+    }
+  </script>
+</body>
+</html>
