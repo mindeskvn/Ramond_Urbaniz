@@ -519,6 +519,8 @@
     }
 
     .locator-map {
+      min-width: 0;
+      position: relative;
       overflow: hidden;
       border: 1px solid var(--line);
       border-radius: 8px;
@@ -526,15 +528,21 @@
       box-shadow: var(--shadow);
     }
 
+    .map-scroll {
+      overflow: visible;
+    }
+
     .map-stage {
       position: relative;
       width: 100%;
+      max-width: 100%;
+      aspect-ratio: 2200 / 1548;
       line-height: 0;
     }
 
     .map-stage img {
       width: 100%;
-      height: auto;
+      height: 100%;
       display: block;
       object-fit: contain;
       background: #f8f4ec;
@@ -707,7 +715,7 @@
     }
 
     .locator.is-overview {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
     }
 
     .locator.is-overview .locator-info {
@@ -828,6 +836,7 @@
     }
 
     .locator-info {
+      min-width: 0;
       border: 1px solid var(--line);
       border-radius: 8px;
       background: var(--paper);
@@ -967,7 +976,7 @@
       }
 
       .locator {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
       }
 
       .section-head {
@@ -1037,6 +1046,72 @@
         flex-direction: column;
       }
 
+      .locator-map {
+        margin-top: 0;
+        overflow: visible;
+      }
+
+      .locator-map.is-overview .map-scroll {
+        overflow-x: auto;
+        overflow-y: hidden;
+        border-radius: 8px;
+        scrollbar-width: thin;
+      }
+
+      .locator-map.is-overview .map-stage {
+        min-width: 900px;
+        max-width: none;
+      }
+
+      .lightbox.is-overview {
+        align-items: center;
+        justify-content: flex-start;
+        overflow: auto;
+        padding: 64px 16px 24px;
+      }
+
+      .lightbox.is-overview .lightbox-stage {
+        width: 900px;
+        min-width: 900px;
+        max-height: none;
+        flex: 0 0 900px;
+      }
+
+      .lightbox.is-overview .lightbox-stage img {
+        max-height: none;
+      }
+
+      .map-stage img {
+        border-radius: 8px;
+      }
+
+      .map-controls {
+        position: static;
+        width: max-content;
+        max-width: calc(100vw - 32px);
+        margin: 0 auto 10px;
+        gap: 6px;
+        justify-content: center;
+      }
+
+      .map-zoom-btn,
+      .overview-toggle {
+        flex: 0 0 auto;
+        height: 36px;
+        padding: 0 10px;
+        font-size: 12px;
+      }
+
+      .locator-map.is-overview .overview-layer,
+      .lightbox.is-overview .overview-layer {
+        line-height: 1.2;
+      }
+
+      .locator-map.is-overview .overview-card,
+      .lightbox.is-overview .overview-card {
+        transform: translate(-50%, -50%) scale(.72);
+      }
+
       .map-marker {
         min-width: 72px;
         min-height: 30px;
@@ -1056,7 +1131,6 @@
         transform: translate(-50%, calc(-100% - 38px)) scale(1.04);
       }
     }
-
     @media print {
       body {
         background: #fff;
@@ -1382,12 +1456,13 @@
 
         <div class="locator">
           <div class="locator-map" id="locatorMap" aria-label="So do vi tri can">
-            <div class="map-stage">
-              <img id="mapPreview" src="https://drive.google.com/thumbnail?id=1D0BXnJIPi50J_tKT0VMkSVKEepmXHvLw&amp;sz=w3000" alt="Sơ đồ tổng mặt bằng Ramond Urbaniz TMB 09.09">
-              <div class="map-controls">
-                <button class="overview-toggle" type="button" id="overviewToggle" aria-pressed="false">Tổng quan</button>
-                <button class="map-zoom-btn" type="button" id="openMapZoom">Phóng to</button>
-              </div>
+            <div class="map-controls">
+              <button class="overview-toggle" type="button" id="overviewToggle" aria-pressed="false">Tổng quan</button>
+              <button class="map-zoom-btn" type="button" id="openMapZoom">Phóng to</button>
+            </div>
+            <div class="map-scroll">
+              <div class="map-stage">
+                <img id="mapPreview" src="https://drive.google.com/thumbnail?id=1D0BXnJIPi50J_tKT0VMkSVKEepmXHvLw&amp;sz=w3000" alt="Sơ đồ tổng mặt bằng Ramond Urbaniz TMB 09.09">
               <button class="map-marker" type="button" data-unit="TT3-06" style="--x: 61.21%; --y: 38.62%;">TT3-06</button>
               <button class="map-marker" type="button" data-unit="TT3-08" style="--x: 62.17%; --y: 38.62%;">TT3-08</button>
               <button class="map-marker" type="button" data-unit="TT3-33" style="--x: 43.59%; --y: 50.92%;">TT3-33</button>
@@ -1558,6 +1633,7 @@
                 </article>
               </div>
             </div>
+          </div>
           </div>
 
           <aside class="locator-info" aria-label="Thong tin gia can dang chon">
